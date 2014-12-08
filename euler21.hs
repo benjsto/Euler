@@ -7,4 +7,18 @@
 
 --Evaluate the sum of all the amicable numbers under 10000.
 
+import Data.Array
 
+main = do
+        print (sum (amicablesLessThan 9999))
+
+properDivisors n = 1 : filter ((==0) . rem n) [2 .. n `div` 2]
+
+sumProperDivisors = sum . properDivisors
+
+isAmicable n = n == l && l < 10000 && n /= m
+    where
+        l = sumProperDivisors m
+        m = sumProperDivisors n
+
+amicablesLessThan n = filter isAmicable [2..n]

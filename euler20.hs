@@ -4,8 +4,13 @@
 --and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
 --Find the sum of the digits in the number 100!
-import Data.Char
+
+module Euler20 (main) where
+
+import           Data.Char
 
 factorial n = product [n, n-1 .. 1]
 
 answer = sum (map digitToInt (show (factorial 100)))
+
+main = print answer
